@@ -41,13 +41,14 @@ const karatsubaMultiplication = (x, y) => {
 
   const xLen = x.length;
   const yLen = y.length;
-
   const xMid = Math.floor(xLen / 2);
   const yMid = Math.floor(yLen / 2);
+
   let ac = karatsubaMultiplication(x.substring(0, xMid), y.substring(0, yMid));
   let bd = karatsubaMultiplication(x.substring(xMid), y.substring(yMid));
   let ad = karatsubaMultiplication(x.substring(0, xMid), y.substring(yMid));
   let bc = karatsubaMultiplication(x.substring(xMid), y.substring(0, yMid));
+
   return [ac, bd, ad, bc];
 };
 
