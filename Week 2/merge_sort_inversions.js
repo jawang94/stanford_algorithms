@@ -13,15 +13,15 @@
 // any space / commas / any other punctuation marks. You can make up to 5 attempts, and we'll
 // use the best one for grading.
 
-const mergeSortAndCountInversions = obj => {
+const mergeSortInversions = obj => {
   if (obj.arr.length < 2) return obj;
 
   let mid = Math.floor(obj.arr.length / 2);
   let left = { arr: obj.arr.slice(0, mid), count: obj.count };
   let right = { arr: obj.arr.slice(mid), count: obj.count };
   let result = mergeAndCount(
-    mergeSortAndCountInversions(left),
-    mergeSortAndCountInversions(right)
+    mergeSortInversions(left),
+    mergeSortInversions(right)
   );
 
   return result;
@@ -50,7 +50,7 @@ const mergeAndCount = (left, right) => {
 };
 
 // let x = [1,3,5,2,4,6];
-// console.log(mergeSortAndCountInversions({arr: x, count: 0}).count);
+// console.log(mergeSortInversions({arr: x, count: 0}).count);
 
 const util = require("util");
 const fs = require("fs");
@@ -69,5 +69,5 @@ const parseTxt = async csvFile => {
   return result;
 };
 parseTxt("Week 2/IntegerArray.txt").then(() => {
-  console.log(mergeSortAndCountInversions({ arr: result, count: 0 }));
+  console.log(mergeSortInversions({ arr: result, count: 0 }));
 });
